@@ -44,8 +44,7 @@ Van een images (class) een container (object) maken. Vergelijk in Java:
 ```
 Dog myDog = new Dog(ras="Duitse herder")
 ```
-Dockerfile is de bouwteking voor de image
-Let op de punt in volgend commando. Die bestanden gebruik je voor bouwen.
+Dockerfile is de bouwteking voor de image. Let op de punt in volgend commando. Die bestanden gebruik je voor bouwen.
 ```
 docker build -t my_docker_image:0.0.1 .
 docker image ls
