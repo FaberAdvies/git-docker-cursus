@@ -12,24 +12,24 @@ Source code management systeem
 
 ## Commando's
 ```
-git clone git@github.com:FaberAdvies/spring-kotlin-api.git
+git clone git@github.com:FaberAdvies/git-docker-cursus.git
 git status
 git log
 
-git add <file> 
-git add .
+#git add <file>
+#git add .
 
-git commit -m "Commit messages"
-git commit --amend
+#git commit -m "Commit messages"
+#git commit --amend
 
 git fetch
-git merge
+#git merge
 git pull
 
 
-git rebase
+#git rebase
 
-git push
+#git push
 ```
 
 # Docker
@@ -45,30 +45,33 @@ Van een images (class) een container (object) maken. Vergelijk in Java:
 Dog myDog = new Dog(ras="Duitse herder")
 ```
 Dockerfile is de bouwteking voor de image
+Let op de punt in volgend commando. Die bestanden gebruik je voor bouwen.
 ```
-docker build -t myDockerImage:0.0.1 .  <- let op de punt
-docker image ls (korter docker images)
+docker build -t my_docker_image:0.0.1 .
+docker image ls
+docker images
 ```
 
 ## Containers
 ```
-docker run -d --name myDockerContainer myDockerImage:0.0.1
-docker ps -qa
-docker inspect myDockerContainer 
+docker run -d -p 8080:8080 --name myDockerContainer my_docker_image:0.0.1
+docker ps -a
+docker inspect myDockerContainer
 docker stop myDockerContainer
 docker start myDockerContainer
 docker logs -tf myDockerContainer
 docker exec -it myDockerContainer bash
+docker stop myDockerContainer
+docker rm myDockerContainer
 
-docker pull ghcr.io/faberadvies/behive-api:0.0.1-SNAPSHOT 
-docker run -d --name behive ghcr.io/faberadvies/behive-api:0.0.1-SNAPSHOT
-docker ps -qa
-docker inspect behive
 ```
 # Docker compose
 
-docker-compose.yml
+Via docker-compose.yml
 ```
-docker compose up -d -p <project naam>
-docker compose down
+docker compose -p my-project up -d
+docker ps
+docker compose -p my-project stop
+docker compose -p my-project down
+
 ```
